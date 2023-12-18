@@ -10,8 +10,8 @@ import com.example.lesson03.mapper.ReviewMapper;
 public class ReviewBO {
 	@Autowired
 	private ReviewMapper reviewMapper;
-	// input: X  output: Review ( 리스트 아닌 하나만 리턴 하니까)//ReviewMapper에서 받아옴
-	public Review getReview() {
-		return reviewMapper.selectReview();
+	// input: id  output: Review ( 리스트 아닌 하나만 리턴 하니까)//ReviewMapper에서 받아옴
+	public Review getReview(int id) { // null 허용 없음: int
+		return reviewMapper.selectReview(id);
 	}
 }

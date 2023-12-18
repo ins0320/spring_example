@@ -2,6 +2,7 @@ package com.example.lesson03;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.lesson03.bo.ReviewBO;
@@ -14,9 +15,19 @@ public class Lesson03Ex01RestController {
 	private ReviewBO reviewBO;
 	
 	// url: http://localhost/lesson03/ex01
+	// url: http://localhost/lesson03/ex01?id=7
+	//@RequestParam(value="parameter로 쓸 이름") int id ( not null->int, null-> Integer)
 	@RequestMapping("/lesson03/ex01")
-	public Review ex01() {
-	
-		return reviewBO.getReview(); //response body => JSON
+	public Review ex01(
+			//@RequestParam(value="id") int id)// 필수 파라미터
+			//@RequestParam(value="id", required = true) int id // 필수 파라미터
+			//@RequestParam(value="id", required = false) Integer id // 비필수 파라미터
+			//@RequestParam(value="id", defaultValue="1") int id// 비필수 + 디폴트 값 1 
+			@RequestParam("id") int id ){ //필수 파라미터 
+		//비필수, 기본값 = 1으로 세팅
+		
+//		 if (id = null) { id = 1; } 
+		 
+		return reviewBO.getReview(id); //response body => JSON
 	}
 }
