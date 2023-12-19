@@ -21,4 +21,66 @@
 		WHERE
 			`id` = #{id}		
 	 </select>
+	 
+	 <!-- insert는 쿼리에서 결과라 돌아오는 게 아니니 resultType 없음
+	 select만 resultType 존재 -->
+	 <insert id="insertReview" parameterType="com.example.lesson03.domain.Review">
+	 	INSERT INTO
+	 				`new_review`
+	 	(
+	 		`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+	 	)
+	 	VALUES
+	 	(
+	 		#{storeId}
+	 		, #{menu}
+	 		, #{userName}
+	 		, #{point}
+	 		, #{review}
+	 		, NOW()
+	 		, NOW()
+	 	)			
+	 </insert>
+	 
+	 <insert id="insertReviewAsFiled" parameterType="map">
+	 INSERT INTO
+	 				`new_review`
+	 	(
+	 		`storeId`
+			,`menu`
+			,`userName`
+			,`point`
+			,`review`
+			,`createdAt`
+			,`updatedAt`
+	 	)
+	 	VALUES
+	 	(
+	 		#{storeId}
+	 		, #{menu}
+	 		, #{userName}
+	 		, #{point}
+	 		, #{review}
+	 		, NOW()
+	 		, NOW()
+	 	)			
+	 
+	 </insert>
+	 
+	 <update id="updateReviewById" parameterType="map">
+	 	UPDATE
+	 		`new_review`
+	 	SET
+	 		`review` = #{review}
+	 		, `updatedAt` = NOW()
+	 	WHERE
+	 		id = #{id}		
+	 
+	 </update>
  </mapper>
