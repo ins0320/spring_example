@@ -23,4 +23,8 @@ public class UserBO {
 	public User getLatestUser() {
 		return userMapper.selectLatestUser();
 	}
+	
+	public boolean isDuplicationByName(String name) {
+		return userMapper.isDuplicationByName(name); 
+	}
 }
