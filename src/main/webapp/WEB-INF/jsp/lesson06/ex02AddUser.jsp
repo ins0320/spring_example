@@ -23,7 +23,8 @@
 				<button type="button" id="nameCheckBtn" class="btn btn-info">중복확인</button>
 			</div>
 			
-			<small id="nameStatusArea"></small>
+			<small id="nameStatusArea">
+			</small>
 		</div>
 		
 		<input type="button" id="joinBtn" value="회원가입" class="btn btn-success">
